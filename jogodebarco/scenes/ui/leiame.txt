@@ -1,0 +1,1 @@
+Pasta para scripts, cenas e assets do UI e elementos de HUD
