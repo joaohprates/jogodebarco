@@ -1,0 +1,1 @@
+Pasta para as cenas, sprites e scripts de inimigos
