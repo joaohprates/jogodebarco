@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://u81gkx7gn71n"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_8afob"]
+[ext_resource type="Script" uid="uid://dxnem0gkg5bc4" path="res://scenes/player/player.gd" id="1_p47bc"]
+[ext_resource type="PackedScene" uid="uid://y85rwk8eynd8" path="res://scripts/sistemas/cannon.tscn" id="2_lvxji"]
+[ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="3_p47bc"]
+[ext_resource type="PackedScene" uid="uid://dguywdtt7eei4" path="res://scripts/sistemas/movement.tscn" id="4_75vfm"]
+[ext_resource type="Script" uid="uid://f263b03ox8ac" path="res://scripts/sistemas/cannon.gd" id="4_qek5x"]
+[ext_resource type="Script" uid="uid://dren4fh2cotwu" path="res://scripts/sistemas/health.gd" id="6_5gtgg"]
+[ext_resource type="Script" uid="uid://bwats82cvptw1" path="res://scripts/sistemas/movement.gd" id="8_h17s1"]
+[ext_resource type="Script" uid="uid://0pw73pia5yuu" path="res://scenes/player/repair.gd" id="9_5gtgg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
+radius = 64.0
+height = 256.0
+
+[node name="Player" type="CharacterBody2D" unique_id=758394093]
+script = ExtResource("1_p47bc")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1701776584]
+scale = Vector2(1, 2)
+texture = ExtResource("1_8afob")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1331949318]
+shape = SubResource("CapsuleShape2D_dovo2")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1132267739]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1506463479]
+zoom = Vector2(0.48, 0.48)
+
+[node name="Cannon" parent="." unique_id=1055834211 instance=ExtResource("2_lvxji")]
+script = ExtResource("4_qek5x")
+
+[node name="Health" parent="." unique_id=1914523214 instance=ExtResource("3_p47bc")]
+script = ExtResource("6_5gtgg")
+
+[node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("4_75vfm")]
+script = ExtResource("8_h17s1")
+
+[node name="Repair" type="Node" parent="." unique_id=56732461]
+script = ExtResource("9_5gtgg")
