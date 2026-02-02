@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cxnxj506gthb4"]
+
+[ext_resource type="Script" uid="uid://ct3kiyqgjj0no" path="res://scenes/ui/action_group.gd" id="1_0elih"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_upvnu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0elih"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gtgg"]
+bg_color = Color(0.31052193, 0.7072092, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h17s1"]
+bg_color = Color(0.99999994, 0.23026317, 0.1274474, 1)
+
+[node name="ActionGroup" type="HBoxContainer" unique_id=810268185]
+script = ExtResource("1_0elih")
+
+[node name="Action" type="Button" parent="." unique_id=909131268]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0elih")
+toggle_mode = true
+icon = ExtResource("1_upvnu")
+
+[node name="Name" type="Label" parent="Action" unique_id=521447531]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 24
+text = "Text
+"
+
+[node name="Counter" type="Label" parent="Action" unique_id=2125707268]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "x/y"
+
+[node name="Crew" type="VBoxContainer" parent="." unique_id=1390851300]
+layout_mode = 2
+
+[node name="AddCrew" type="Button" parent="Crew" unique_id=6791038]
+custom_minimum_size = Vector2(24, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_5gtgg")
+text = "+"
+
+[node name="RmCrew" type="Button" parent="Crew" unique_id=2121351003]
+custom_minimum_size = Vector2(24, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_h17s1")
+text = "-"
