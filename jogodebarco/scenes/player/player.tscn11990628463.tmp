@@ -16,7 +16,6 @@ radius = 64.0
 height = 256.0
 
 [node name="Player" type="CharacterBody2D" unique_id=758394093]
-slide_on_ceiling = false
 script = ExtResource("1_p47bc")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1701776584]
@@ -39,24 +38,8 @@ grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 10
 
-[node name="Move" parent="HUD/ActBar" unique_id=810268185 instance=ExtResource("3_h17s1")]
+[node name="ActionGroup" parent="HUD/ActBar" unique_id=810268185 instance=ExtResource("3_h17s1")]
 layout_mode = 2
-
-[node name="Cannon" parent="HUD/ActBar" unique_id=1749966055 instance=ExtResource("3_h17s1")]
-layout_mode = 2
-
-[node name="Repair" parent="HUD/ActBar" unique_id=849423893 instance=ExtResource("3_h17s1")]
-layout_mode = 2
-
-[node name="ResetCrew" type="Button" parent="HUD/ActBar" unique_id=1641167650]
-layout_mode = 2
-text = "Reset"
-
-[node name="CrewCount" type="Label" parent="HUD/ActBar" unique_id=1598000775]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "Crew x/y"
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1506463479]
 zoom = Vector2(0.48, 0.48)
