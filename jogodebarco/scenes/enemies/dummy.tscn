@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dflf4ph2ji1yw"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_3afmq"]
+[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/Attackable.tscn" id="2_niafq"]
+[ext_resource type="PackedScene" uid="uid://dggdu2ea22nri" path="res://scripts/draggable.tscn" id="3_niafq"]
+
+[node name="Dummy" type="Node2D" unique_id=539487182]
+
+[node name="Attackable" parent="." unique_id=567739818 instance=ExtResource("2_niafq")]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1909405380]
+texture = ExtResource("1_3afmq")
+
+[node name="Draggable" parent="." unique_id=354464397 instance=ExtResource("3_niafq")]

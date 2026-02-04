@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_8afob"]
 [ext_resource type="Script" uid="uid://dxnem0gkg5bc4" path="res://scenes/player/player.gd" id="1_p47bc"]
+[ext_resource type="Material" uid="uid://c1b12mkish2rt" path="res://assets/shaders/attack_outline.tres" id="2_je7p5"]
 [ext_resource type="PackedScene" uid="uid://y85rwk8eynd8" path="res://scripts/sistemas/RightCannon.tscn" id="2_lvxji"]
 [ext_resource type="PackedScene" uid="uid://cxnxj506gthb4" path="res://scenes/ui/action_group.tscn" id="3_h17s1"]
 [ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="3_p47bc"]
@@ -9,8 +10,8 @@
 [ext_resource type="Script" uid="uid://dren4fh2cotwu" path="res://scripts/sistemas/health.gd" id="6_5gtgg"]
 [ext_resource type="Script" uid="uid://bwats82cvptw1" path="res://scripts/sistemas/movement.gd" id="8_h17s1"]
 [ext_resource type="Script" uid="uid://0pw73pia5yuu" path="res://scenes/player/repair.gd" id="9_5gtgg"]
-[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/Attackable.tscn" id="12_fm80t"]
 [ext_resource type="PackedScene" uid="uid://dijov7hopv4oo" path="res://scripts/sistemas/LeftCannon.tscn" id="12_gx1jg"]
+[ext_resource type="PackedScene" uid="uid://dggdu2ea22nri" path="res://scripts/draggable.tscn" id="13_gx1jg"]
 [ext_resource type="Script" uid="uid://cd77eivqyxlh5" path="res://scripts/sistemas/left_cannon.gd" id="13_ugbui"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
@@ -20,32 +21,6 @@ height = 256.0
 [node name="Player" type="CharacterBody2D" unique_id=758394093]
 slide_on_ceiling = false
 script = ExtResource("1_p47bc")
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1701776584]
-scale = Vector2(1, 2)
-texture = ExtResource("1_8afob")
-
-[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1331949318]
-shape = SubResource("CapsuleShape2D_dovo2")
-
-[node name="Camera" type="Camera2D" parent="." unique_id=1506463479]
-zoom = Vector2(0.4, 0.4)
-
-[node name="RightCannon" parent="." unique_id=1055834211 instance=ExtResource("2_lvxji")]
-
-[node name="Health" parent="." unique_id=1914523214 instance=ExtResource("3_p47bc")]
-script = ExtResource("6_5gtgg")
-
-[node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("4_75vfm")]
-script = ExtResource("8_h17s1")
-
-[node name="Repair" type="Node" parent="." unique_id=56732461]
-script = ExtResource("9_5gtgg")
-
-[node name="LeftCannon" parent="." unique_id=1758365461 instance=ExtResource("12_gx1jg")]
-script = ExtResource("13_ugbui")
-
-[node name="Attackable" parent="." unique_id=2015687690 instance=ExtResource("12_fm80t")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1132267739]
 
@@ -83,3 +58,30 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Crew x/y"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1701776584]
+material = ExtResource("2_je7p5")
+scale = Vector2(1, 2)
+texture = ExtResource("1_8afob")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1331949318]
+shape = SubResource("CapsuleShape2D_dovo2")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1506463479]
+zoom = Vector2(0.3, 0.3)
+
+[node name="RightCannon" parent="." unique_id=1055834211 instance=ExtResource("2_lvxji")]
+
+[node name="Health" parent="." unique_id=1914523214 instance=ExtResource("3_p47bc")]
+script = ExtResource("6_5gtgg")
+
+[node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("4_75vfm")]
+script = ExtResource("8_h17s1")
+
+[node name="Repair" type="Node" parent="." unique_id=56732461]
+script = ExtResource("9_5gtgg")
+
+[node name="LeftCannon" parent="." unique_id=1758365461 instance=ExtResource("12_gx1jg")]
+script = ExtResource("13_ugbui")
+
+[node name="Draggable" parent="." unique_id=354464397 instance=ExtResource("13_gx1jg")]

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ddmr6k2yey2n3"]
+
+[ext_resource type="Script" uid="uid://53itluakc173" path="res://scripts/attackable.gd" id="1_fsxym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4l7i"]
+
+[node name="Attackable" type="Node2D" unique_id=2015687690]
+script = ExtResource("1_fsxym")
+
+[node name="DetectBox" type="Area2D" parent="." unique_id=275021185]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBox" unique_id=253763575]
+shape = SubResource("RectangleShape2D_w4l7i")
+
+[node name="TooFar" type="Label" parent="." unique_id=1637553279]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 10.0
+offset_right = 51.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "TOO FAR"
