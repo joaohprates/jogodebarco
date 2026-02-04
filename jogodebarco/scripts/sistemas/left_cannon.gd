@@ -1,4 +1,4 @@
-extends Manned
+extends Cannon
 
 func _ready() -> void:
 	super()

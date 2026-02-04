@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dggdu2ea22nri"]
+
+[ext_resource type="Script" uid="uid://bh4p5e2ac533v" path="res://scripts/draggable.gd" id="1_ogpjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko5mu"]
+
+[node name="Draggable" type="Node2D" unique_id=354464397]
+script = ExtResource("1_ogpjp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=37332476]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1967425370]
+shape = SubResource("RectangleShape2D_ko5mu")
+debug_color = Color(0.9411614, 9.818673e-06, 0.6140132, 0.41960785)
