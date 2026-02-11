@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cxnxj506gthb4" path="res://scenes/ui/action_group.tscn" id="3_h17s1"]
 [ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="3_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dguywdtt7eei4" path="res://scripts/sistemas/movement.tscn" id="4_75vfm"]
-[ext_resource type="Script" uid="uid://dren4fh2cotwu" path="res://scripts/sistemas/health.gd" id="6_5gtgg"]
 [ext_resource type="Script" uid="uid://bwats82cvptw1" path="res://scripts/sistemas/movement.gd" id="8_h17s1"]
 [ext_resource type="Script" uid="uid://0pw73pia5yuu" path="res://scenes/player/repair.gd" id="9_5gtgg"]
+[ext_resource type="Script" uid="uid://bee0sp3qk7ftx" path="res://scripts/sistemas/kit_reparo.gd" id="11_fm80t"]
 [ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/Attackable.tscn" id="12_fm80t"]
 [ext_resource type="PackedScene" uid="uid://dijov7hopv4oo" path="res://scripts/sistemas/LeftCannon.tscn" id="12_gx1jg"]
+[ext_resource type="Script" uid="uid://5fdo7010jhip" path="res://scenes/player/progress_bar.gd" id="13_gx1jg"]
 [ext_resource type="Script" uid="uid://cd77eivqyxlh5" path="res://scripts/sistemas/left_cannon.gd" id="13_ugbui"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
@@ -34,7 +35,6 @@ zoom = Vector2(0.4, 0.4)
 [node name="RightCannon" parent="." unique_id=1055834211 instance=ExtResource("2_lvxji")]
 
 [node name="Health" parent="." unique_id=1914523214 instance=ExtResource("3_p47bc")]
-script = ExtResource("6_5gtgg")
 
 [node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("4_75vfm")]
 script = ExtResource("8_h17s1")
@@ -49,13 +49,31 @@ script = ExtResource("13_ugbui")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1132267739]
 
+[node name="RepairKitButton" type="Button" parent="HUD" unique_id=1477050651]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -21.5
+offset_right = 231.0
+offset_bottom = 21.5
+grow_vertical = 2
+text = "KIT REPARO"
+script = ExtResource("11_fm80t")
+
+[node name="KitCount" type="Label" parent="HUD/RepairKitButton" unique_id=1102718661]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 14.0
+offset_right = 278.0
+offset_bottom = 37.0
+
 [node name="ActBar" type="HBoxContainer" parent="HUD" unique_id=1331741509]
 custom_minimum_size = Vector2(0, 128)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -136.0
-offset_right = 828.0
+offset_right = 1082.0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 pivot_offset_ratio = Vector2(0, 1)
@@ -83,3 +101,10 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Crew x/y"
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="HUD" unique_id=982958385]
+offset_right = 146.0
+offset_bottom = 27.0
+script = ExtResource("13_gx1jg")
+
+[connection signal="pressed" from="HUD/RepairKitButton" to="." method="use_repair_kit"]
