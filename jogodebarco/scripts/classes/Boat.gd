@@ -12,4 +12,3 @@ func _ready() -> void:
 
 func reset_crew():
 	free_crew = crew
-	print('asdf')

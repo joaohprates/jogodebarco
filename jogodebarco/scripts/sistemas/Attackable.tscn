@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddmr6k2yey2n3"]
 
-[ext_resource type="Script" uid="uid://53itluakc173" path="res://scripts/attackable.gd" id="1_fsxym"]
+[ext_resource type="Script" uid="uid://53itluakc173" path="res://scripts/sistemas/attackable.gd" id="1_fsxym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4l7i"]
 
@@ -9,6 +9,7 @@ script = ExtResource("1_fsxym")
 
 [node name="DetectBox" type="Area2D" parent="." unique_id=275021185]
 collision_layer = 4
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBox" unique_id=253763575]
 shape = SubResource("RectangleShape2D_w4l7i")

@@ -9,10 +9,9 @@
 [ext_resource type="Script" uid="uid://bwats82cvptw1" path="res://scripts/sistemas/movement.gd" id="8_h17s1"]
 [ext_resource type="Script" uid="uid://0pw73pia5yuu" path="res://scenes/player/repair.gd" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://bee0sp3qk7ftx" path="res://scripts/sistemas/kit_reparo.gd" id="11_fm80t"]
-[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/Attackable.tscn" id="12_fm80t"]
+[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="12_fm80t"]
 [ext_resource type="PackedScene" uid="uid://dijov7hopv4oo" path="res://scripts/sistemas/LeftCannon.tscn" id="12_gx1jg"]
 [ext_resource type="Script" uid="uid://5fdo7010jhip" path="res://scenes/player/progress_bar.gd" id="13_gx1jg"]
-[ext_resource type="Script" uid="uid://cd77eivqyxlh5" path="res://scripts/sistemas/left_cannon.gd" id="13_ugbui"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 64.0
@@ -43,7 +42,6 @@ script = ExtResource("8_h17s1")
 script = ExtResource("9_5gtgg")
 
 [node name="LeftCannon" parent="." unique_id=1758365461 instance=ExtResource("12_gx1jg")]
-script = ExtResource("13_ugbui")
 
 [node name="Attackable" parent="." unique_id=2015687690 instance=ExtResource("12_fm80t")]
 
