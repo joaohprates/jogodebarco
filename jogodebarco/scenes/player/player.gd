@@ -28,16 +28,18 @@ func _ready() -> void:
 	$HUD/ActBar/LeftCanon.action = $LeftCannon
 	$HUD/ActBar/Move.action = $Movement
 	$HUD/ActBar/Repair.action = $Repair
-	#$HUD/ActBar/Gavea.action = $Gavea
+	$HUD/ActBar/Gavea.action = $Gavea
 	$HUD/ActBar/ResetCrew.connect("pressed", reset_button)
+	
 	$HUD/PlayerHealthBar.setup($Health)
 	$HUD/RepairKitButton.setup(self)
 	$HUD/RepairKitButton.connect("pressed", use_repair_kit)
 	emit_signal("repair_kits_changed", repair_kits, repair_kits_max)
-
+	
 func _initialize_var():
 	movement.speed = 0
 	movement.anchored = true
+
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
@@ -47,6 +49,9 @@ func _physics_process(delta: float) -> void:
 		aim_mode($RightCannon)
 	if $LeftCannon.activated:
 		aim_mode($LeftCannon)
+
+	
+
 
 func aim_mode(cannon : Cannon):
 	if Global.under_mouse != null and is_instance_valid(Global.under_mouse):
@@ -62,6 +67,7 @@ func aim_mode(cannon : Cannon):
 			cannon.target = null
 			if $RightCannon.target != old_target and $LeftCannon.target != old_target:
 				old_target.is_target = false
+
 
 func reset_button() -> void:
 	emit_signal("crew_reset")
