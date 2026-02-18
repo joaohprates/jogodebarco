@@ -1,13 +1,11 @@
-extends Manned
+extends Camera2D
+class_name Cam
 
-class_name Health_Repair
+@export var cam = zoom
 
-@onready var cooldown = $Timer
-
-
-
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
