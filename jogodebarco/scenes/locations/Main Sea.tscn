@@ -9,4 +9,4 @@
 position = Vector2(517, 291)
 
 [node name="Dummy" parent="." unique_id=539487182 instance=ExtResource("2_pg358")]
-position = Vector2(1228, 882)
+position = Vector2(760, 450)
