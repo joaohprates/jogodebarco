@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u81gkx7gn71n" path="res://scenes/player/player.tscn" id="1_wg2vt"]
 [ext_resource type="PackedScene" uid="uid://dflf4ph2ji1yw" path="res://scenes/enemies/dummy.tscn" id="2_pg358"]
+[ext_resource type="PackedScene" uid="uid://b0p6v57ho6s1d" path="res://scenes/enemies/enemy.tscn" id="3_rfwcb"]
 
 [node name="Node2D" type="Node2D" unique_id=1566108763]
 
@@ -10,3 +11,6 @@ position = Vector2(517, 291)
 
 [node name="Dummy" parent="." unique_id=539487182 instance=ExtResource("2_pg358")]
 position = Vector2(1228, 882)
+
+[node name="Enemy" parent="." unique_id=167787672 instance=ExtResource("3_rfwcb")]
+position = Vector2(1958, 349)

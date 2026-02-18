@@ -9,6 +9,7 @@ var relative_side
 
 @onready var r_cannon = $RightCannon
 @onready var l_cannon = $LeftCannon
+@onready var personal_space = $PersonalSpace
 @onready var detection = $DetectionRange
 @onready var crew_timer = $CrewTimer
 @onready var think_timer = $ThinkTimer
@@ -34,7 +35,6 @@ func _ready() -> void:
 	crew_timer.connect("timeout", distribute_combat_crew)
 	think_timer.wait_time = 3/intelligence
 	think_timer.connect('timeout', _think)
-	
 
 func _physics_process(delta: float) -> void:
 	if state == States.ATTACK:
@@ -43,7 +43,6 @@ func _physics_process(delta: float) -> void:
 		idle_crew()
 
 func _attack():
-	b_state = BattleStates.CHASE
 	if $PersonalSpace.on_personal_space:
 		b_state = BattleStates.TOO_CLOSE
 	match b_state:
@@ -55,15 +54,18 @@ func _attack():
 			pass
 
 func distribute_combat_crew():
-	reset_crew()
+	if state != States.ATTACK:
+		return
+	emit_signal("crew_reset")
 	match b_state:
 		BattleStates.CHASE:
 			#alocar 2 ao movimento, 1 em cada canhão
 			l_cannon.allocate(1)
 			r_cannon.allocate(1)
+			print('entered chase')
 		BattleStates.ORBIT:
 			var active_cannon = null
-			if relative_side > 1:
+			if relative_side < 1:
 				active_cannon = l_cannon
 			else:
 				active_cannon = r_cannon
@@ -72,28 +74,39 @@ func distribute_combat_crew():
 			#2 em movimento 1 em cada canhão
 			l_cannon.allocate(1)
 			r_cannon.allocate(1)
+	_combat_debug()
 
 func _think():
 	if state != States.ATTACK:
 		return
-	relative_side = (target.global_position - global_position) * cos(rotation)
+	relative_side = (target.global_position.x - global_position.x) * cos(rotation)
 	if relative_side == 0:
 		if cos(rotation) == 0:
 			relative_side = 1
 		else:
 			relative_side = rotation_degrees
+	if personal_space.on_personal_space:
+		b_state = BattleStates.TOO_CLOSE
+	else:
+		if r_cannon.in_aim or l_cannon.in_aim:
+			b_state = BattleStates.ORBIT
+		else:
+			b_state = BattleStates.CHASE
 
 func idle_crew():
 	reset_crew()
 
 func _player_detected(area):
+	if state != States.IDLE:
+		return
 	state = States.ATTACK
+	b_state = BattleStates.CHASE
 	r_cannon.target = area.owner.get_node('Attackable')
 	l_cannon.target = area.owner.get_node('Attackable')
 	target = area.owner
 
 func _combat_debug():
-	print('state: '+ str(state))
-	print('battle_state: '+ str(state))
-	print('state: '+ str(state))
-	print('state: '+ str(state))
+	print('state: '+ str(States.find_key(state)) + str(state))
+	print('battle_state: '+ str(BattleStates.find_key(b_state)) + str(b_state))
+	print('Intelligence: '+ str(intelligence))
+	print('relative side: '+ str(relative_side))

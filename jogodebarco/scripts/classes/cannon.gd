@@ -7,6 +7,7 @@ class_name Cannon
 
 var target
 var on_range = []
+var in_aim = false
 var can_shoot = true
 var base_damage = 4
 var cooldown_time = 1
@@ -22,7 +23,11 @@ func _process(delta: float) -> void:
 		_attack(target)
 
 func _attack(tgt):
-	if on_range.has(tgt) and can_shoot:
+	if on_range.has(target):
+		in_aim = true
+	else:
+		in_aim = false
+	if in_aim and can_shoot:
 		if crew > 0:
 			_shoot(tgt)
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0p6v57ho6s1d"]
 
-[ext_resource type="Script" uid="uid://0130yv3jbcq5" path="res://enemy.gd" id="1_6xk8f"]
+[ext_resource type="Script" uid="uid://0130yv3jbcq5" path="res://scenes/enemies/enemy.gd" id="1_6xk8f"]
 [ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="2_jt03m"]
 [ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="3_n7575"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="4_qch6t"]
@@ -9,15 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://70pf4owuumip" path="res://scripts/sistemas/health_bar.tscn" id="7_p7w77"]
 [ext_resource type="PackedScene" uid="uid://bkrkmsql3lgqw" path="res://scripts/sistemas/detection_range.tscn" id="8_n7575"]
 [ext_resource type="Script" uid="uid://b1lln8vji1xdy" path="res://scenes/enemies/personal_space.gd" id="9_qch6t"]
+[ext_resource type="PackedScene" uid="uid://dggdu2ea22nri" path="res://scripts/sistemas/draggable.tscn" id="10_y5th1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4gvh"]
 radius = 64.0
 height = 256.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y5th1"]
-radius = 702.53326
+radius = 442.95035
 
 [node name="Enemy" type="CharacterBody2D" unique_id=167787672]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_6xk8f")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1188167588]
@@ -54,3 +57,5 @@ autostart = true
 
 [node name="ThinkTimer" type="Timer" parent="." unique_id=1205215423]
 autostart = true
+
+[node name="Draggable" parent="." unique_id=354464397 instance=ExtResource("10_y5th1")]
