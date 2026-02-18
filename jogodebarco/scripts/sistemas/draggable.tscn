@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dggdu2ea22nri"]
 
-[ext_resource type="Script" uid="uid://bh4p5e2ac533v" path="res://scripts/draggable.gd" id="1_ogpjp"]
+[ext_resource type="Script" uid="uid://bh4p5e2ac533v" path="res://scripts/sistemas/draggable.gd" id="1_ogpjp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko5mu"]
 

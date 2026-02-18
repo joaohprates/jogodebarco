@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://70pf4owuumip"]
+
+[ext_resource type="Script" uid="uid://coyyj5q4diecp" path="res://scripts/sistemas/health_bar.gd" id="1_1e1wh"]
+
+[node name="HealthBar" type="Node2D" unique_id=555856711]
+script = ExtResource("1_1e1wh")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=175642765]
+offset_left = -84.0
+offset_top = -101.0
+offset_right = 82.0
+offset_bottom = -74.0

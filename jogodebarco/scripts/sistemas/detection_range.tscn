@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bkrkmsql3lgqw"]
+
+[ext_resource type="Script" uid="uid://bgkf6mtjjsex2" path="res://scripts/sistemas/detection_range.gd" id="1_e76sa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hc60m"]
+radius = 1220.148
+
+[node name="DetectionRange" type="Area2D" unique_id=1315015673]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_e76sa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=696727932]
+shape = SubResource("CircleShape2D_hc60m")
+debug_color = Color(0.55581087, 0.56200475, 1.92523e-07, 0.41960785)
