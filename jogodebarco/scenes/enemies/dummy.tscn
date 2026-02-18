@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dflf4ph2ji1yw"]
 
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_3afmq"]
 [ext_resource type="Script" uid="uid://qo54aseceh5g" path="res://scenes/enemies/dummy.gd" id="1_tl16f"]
 [ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="2_niafq"]
 [ext_resource type="PackedScene" uid="uid://dggdu2ea22nri" path="res://scripts/sistemas/draggable.tscn" id="3_niafq"]
@@ -13,8 +14,7 @@ script = ExtResource("1_tl16f")
 [node name="Attackable" parent="." unique_id=567739818 instance=ExtResource("2_niafq")]
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1909405380]
-rotation = 1.5707964
-texture = ExtResource("3_rcljs")
+texture = ExtResource("1_3afmq")
 
 [node name="Draggable" parent="." unique_id=354464397 instance=ExtResource("3_niafq")]
 
