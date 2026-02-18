@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cxnxj506gthb4" path="res://scenes/ui/action_group.tscn" id="3_h17s1"]
 [ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="3_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dguywdtt7eei4" path="res://scripts/sistemas/movement.tscn" id="4_75vfm"]
-[ext_resource type="Script" uid="uid://bwats82cvptw1" path="res://scripts/sistemas/movement.gd" id="8_h17s1"]
 [ext_resource type="Script" uid="uid://0pw73pia5yuu" path="res://scenes/player/repair.gd" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://bee0sp3qk7ftx" path="res://scripts/sistemas/kit_reparo.gd" id="11_fm80t"]
 [ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="12_fm80t"]
@@ -40,7 +39,6 @@ zoom = Vector2(0.4, 0.4)
 [node name="Health" parent="." unique_id=1914523214 instance=ExtResource("3_p47bc")]
 
 [node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("4_75vfm")]
-script = ExtResource("8_h17s1")
 
 [node name="Repair" type="Node" parent="." unique_id=56732461]
 script = ExtResource("9_5gtgg")
