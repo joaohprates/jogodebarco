@@ -1,35 +1,32 @@
 extends Boat
 
+
 signal repair_kits_changed(current, max)
 @export var repair_kits_max := 3
-
-var mkp
-@onready var helm
 
 enum States {IDLE, AIM_RIGHT, AIM_LEFT, STEER}
 var player_state = States.IDLE
 
 var repair_kits := 3
 
-var tgt = Vector2.ZERO
+@onready var movement: Movement = $Movement
+
+var move_target: Vector2
+var has_target := false
+const STOP_DISTANCE := 5.0
 
 func _ready() -> void:
-	
+	print("RepairKitButton ready")
 	crew = 6
 	free_crew = crew
-
 	Global.Player = self
 	
-	tgt = Vector2(global_position.x, global_position.y - 2)
-	_initialize_var()
-	helm = get_node("Helm")
 	$Attackable.selectable = false
 	$HUD/ActBar/RightCannon.action = $RightCannon
 	$HUD/ActBar/LeftCanon.action = $LeftCannon
 	$HUD/ActBar/Move.action = $Movement
 	$HUD/ActBar/Repair.action = $Repair
-	$HUD/ActBar/Gavea.action = $Gavea
-	$HUD/ActBar/ResetCrew.connect("pressed", reset_button)
+	$HUD/ActBar/ResetCrew.connect('pressed', reset_button)
 	
 	$HUD/PlayerHealthBar.setup($Health)
 	
@@ -37,44 +34,40 @@ func _ready() -> void:
 	$HUD/RepairKitButton.connect("pressed", use_repair_kit)
 	emit_signal("repair_kits_changed", repair_kits, repair_kits_max)
 	
-func _initialize_var():
-	movement.speed = 0
-	movement.anchored = true
-
-
 func _physics_process(delta: float) -> void:
-	super._physics_process(delta)
+	
 	$HUD/ActBar/CrewCount.text = "Crew: %d/%d" % [free_crew, crew]
-	move()
+
+	
 	if $RightCannon.activated:
 		aim_mode($RightCannon)
 	if $LeftCannon.activated:
 		aim_mode($LeftCannon)
 
 	
-
+	if has_target and not movement.anchored:
+		_move_to_target(delta)
+	else:
+		velocity = Vector2.ZERO
+		move_and_slide()
 
 func aim_mode(cannon : Cannon):
-	if Global.under_mouse != null and is_instance_valid(Global.under_mouse):
-		if Global.under_mouse is Attackable:
-			Global.under_mouse.owner.get_node("Sprite").material = load("res://assets/shaders/attack_hover_outline.tres")
+	if Global.under_mouse is Attackable:
+			Global.under_mouse.owner.get_node('Sprite').material = load("res://assets/shaders/attack_hover_outline.tres")
 			if Input.is_action_just_pressed("left_click"):
 				cannon.target = Global.under_mouse
 				cannon.target.is_target = true
-
-	if Input.is_action_just_pressed("r_click"): 
+	if Input.is_action_just_pressed("right_click"): 
 		if cannon.target != null:
 			var old_target = cannon.target
 			cannon.target = null
 			if $RightCannon.target != old_target and $LeftCannon.target != old_target:
 				old_target.is_target = false
 
-
 func reset_button() -> void:
 	emit_signal("crew_reset")
 	free_crew = crew
-
-
+	
 func use_repair_kit():
 	if repair_kits <= 0:
 		return
@@ -89,14 +82,30 @@ func use_repair_kit():
 	health.regen(heal_amount)
 
 	emit_signal("repair_kits_changed", repair_kits, repair_kits_max)
-
-func move():
-	var desired_angle = (tgt - global_position).angle() + PI/2
-	var angle_diff = wrapf(desired_angle - rotation, -PI, PI)
-
-	if abs(angle_diff) > 0.05:
-		rotate(sign(angle_diff) * movement.t_accel)
+	
 func _input(event):
-	if Input.is_action_just_pressed("r_click"):
-		tgt = get_global_mouse_position()
-		movement.anchored = false
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			move_target = get_global_mouse_position()
+			has_target = true
+		
+func _move_to_target(delta: float):
+	var dir = move_target - global_position
+	var distance = dir.length()
+
+	if distance <= STOP_DISTANCE:
+		has_target = false
+		movement.speed = 0
+		return
+
+	dir = dir.normalized()
+
+	
+	movement.speed += movement.accel * delta
+	movement.speed = clamp(movement.speed, 0, movement.max_speed)
+
+	velocity = dir * movement.speed
+	move_and_slide()
+
+	
+	rotation = dir.angle() + PI / 2
