@@ -47,7 +47,6 @@ script = ExtResource("3_fcs02")
 [node name="Health" parent="." unique_id=1914523214 instance=ExtResource("3_p47bc")]
 
 [node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("4_75vfm")]
-script = ExtResource("8_h17s1")
 
 [node name="Repair" type="Node" parent="." unique_id=56732461]
 script = ExtResource("9_5gtgg")
