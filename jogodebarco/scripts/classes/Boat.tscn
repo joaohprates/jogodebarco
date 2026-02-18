@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://s5jjjp2w1kbi"]
-
-[ext_resource type="Script" uid="uid://fktcg0bwrnnh" path="res://scripts/classes/Boat.gd" id="1_8aw58"]
-[ext_resource type="PackedScene" uid="uid://dguywdtt7eei4" path="res://scripts/sistemas/movement.tscn" id="2_vbldo"]
-
-[node name="Boat" type="CharacterBody2D" unique_id=1355228078]
-script = ExtResource("1_8aw58")
-
-[node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("2_vbldo")]
