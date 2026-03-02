@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 class_name Boat
 
 @onready var movement: Movement = $Movement

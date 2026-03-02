@@ -15,7 +15,7 @@ var deaccel := 40.0
 @export var t_accel : float = 0.025
 @export var t_deaccel : float = 1.75
 
-var anchored := true
+var anchored := false
 
 func _ready():
 	super()
