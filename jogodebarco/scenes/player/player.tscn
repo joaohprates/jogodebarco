@@ -11,14 +11,17 @@
 [ext_resource type="Script" uid="uid://dft2k7t15dn6c" path="res://scripts/sistemas/gavea.gd" id="8_ugbui"]
 [ext_resource type="Script" uid="uid://0pw73pia5yuu" path="res://scenes/player/repair.gd" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://bee0sp3qk7ftx" path="res://scripts/sistemas/kit_reparo.gd" id="11_fm80t"]
-[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/Attackable.tscn" id="12_fm80t"]
+[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="12_fm80t"]
 [ext_resource type="PackedScene" uid="uid://dijov7hopv4oo" path="res://scripts/sistemas/LeftCannon.tscn" id="12_gx1jg"]
 [ext_resource type="Script" uid="uid://5fdo7010jhip" path="res://scenes/player/progress_bar.gd" id="13_gx1jg"]
-[ext_resource type="Script" uid="uid://cd77eivqyxlh5" path="res://scripts/sistemas/left_cannon.gd" id="13_ugbui"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 24.0
 height = 124.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fm80t"]
+radius = 64.0
+height = 256.0
 
 [node name="Player" type="CharacterBody2D" unique_id=758394093]
 slide_on_ceiling = false
@@ -44,7 +47,6 @@ script = ExtResource("3_fcs02")
 [node name="Health" parent="." unique_id=1914523214 instance=ExtResource("3_p47bc")]
 
 [node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("4_75vfm")]
-script = ExtResource("8_h17s1")
 
 [node name="Repair" type="Node" parent="." unique_id=56732461]
 script = ExtResource("9_5gtgg")
@@ -53,7 +55,6 @@ script = ExtResource("9_5gtgg")
 script = ExtResource("8_ugbui")
 
 [node name="LeftCannon" parent="." unique_id=1758365461 instance=ExtResource("12_gx1jg")]
-script = ExtResource("13_ugbui")
 
 [node name="Attackable" parent="." unique_id=2015687690 instance=ExtResource("12_fm80t")]
 
@@ -119,5 +120,13 @@ text = "Crew x/y"
 offset_right = 146.0
 offset_bottom = 27.0
 script = ExtResource("13_gx1jg")
+
+[node name="PlayerBox" type="Area2D" parent="." unique_id=95975845]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBox" unique_id=1274931269]
+shape = SubResource("CapsuleShape2D_fm80t")
+debug_color = Color(0, 0.6485344, 0.18764138, 0.41960785)
 
 [connection signal="pressed" from="HUD/RepairKitButton" to="." method="use_repair_kit"]

@@ -32,7 +32,6 @@ func _ready() -> void:
 	$HUD/ActBar/ResetCrew.connect("pressed", reset_button)
 	
 	$HUD/PlayerHealthBar.setup($Health)
-	
 	$HUD/RepairKitButton.setup(self)
 	$HUD/RepairKitButton.connect("pressed", use_repair_kit)
 	emit_signal("repair_kits_changed", repair_kits, repair_kits_max)
