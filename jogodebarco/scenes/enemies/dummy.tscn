@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dflf4ph2ji1yw"]
 
 [ext_resource type="Script" uid="uid://qo54aseceh5g" path="res://scenes/enemies/dummy.gd" id="1_tl16f"]
-[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/Attackable.tscn" id="2_niafq"]
-[ext_resource type="PackedScene" uid="uid://dggdu2ea22nri" path="res://scripts/draggable.tscn" id="3_niafq"]
-[ext_resource type="Texture2D" uid="uid://bpwuxmxry5ml0" path="res://assets/resources/Boat/barcoGrandao.png" id="3_rcljs"]
+[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="2_niafq"]
+[ext_resource type="PackedScene" uid="uid://dggdu2ea22nri" path="res://scripts/sistemas/draggable.tscn" id="3_niafq"]
+[ext_resource type="Texture2D" uid="uid://b2xoegd41rnei" path="res://assets/tilesets/World/Ocean/deep-ocean-tileset2.png" id="3_rcljs"]
 [ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="4_rpbf4"]
-[ext_resource type="Script" uid="uid://coyyj5q4diecp" path="res://scenes/enemies/health_bar_dummy.gd" id="6_rcljs"]
+[ext_resource type="PackedScene" uid="uid://70pf4owuumip" path="res://scripts/sistemas/health_bar.tscn" id="6_rcljs"]
 
 [node name="Dummy" type="Node2D" unique_id=539487182]
 position = Vector2(1, -1)
@@ -21,11 +21,4 @@ texture = ExtResource("3_rcljs")
 
 [node name="Health" parent="." unique_id=1914523214 instance=ExtResource("4_rpbf4")]
 
-[node name="HealthBarDummy" type="Node2D" parent="." unique_id=282840148]
-script = ExtResource("6_rcljs")
-
-[node name="ProgressBar" type="ProgressBar" parent="HealthBarDummy" unique_id=138900663]
-offset_left = -54.0
-offset_top = -99.0
-offset_right = 52.5
-offset_bottom = -72.0
+[node name="HealthBarDummy" parent="." unique_id=555856711 instance=ExtResource("6_rcljs")]
