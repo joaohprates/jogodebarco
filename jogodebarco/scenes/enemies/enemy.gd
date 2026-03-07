@@ -37,13 +37,14 @@ func _ready() -> void:
 	think_timer.connect('timeout', _think)
 
 func _physics_process(delta: float) -> void:
+	super(delta)
 	if state == States.ATTACK:
 		_attack(delta)
 	elif state == States.IDLE:
 		idle_crew()
 
 func _attack(delta):
-	_handle_movement(delta)
+	#_handle_movement(delta)
 	match b_state:
 		BattleStates.CHASE:
 			if snapped(rad_to_deg(global_position.angle_to_point(target.global_position) - rotation), 2) != -90 :

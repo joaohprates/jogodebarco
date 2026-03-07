@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cvavf2saesepr"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_mip7c"]
+[ext_resource type="PackedScene" uid="uid://y65resha01h0" path="res://scenes/player/player_char.tscn" id="2_vort2"]
+[ext_resource type="PackedScene" uid="uid://dbrrikw3xyh47" path="res://scenes/entities/map_table.tscn" id="3_loxj2"]
+
+[node name="Island" type="Node2D" unique_id=343732068]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=634825479]
+modulate = Color(1.4585098, 1.4001882, 0.524854, 1)
+offset_right = 1153.0
+offset_bottom = 650.0
+texture = ExtResource("1_mip7c")
+stretch_mode = 1
+
+[node name="PlayerChar" parent="." unique_id=280951177 instance=ExtResource("2_vort2")]
+position = Vector2(568, 320)
+
+[node name="MapTable" parent="." unique_id=2098247658 instance=ExtResource("3_loxj2")]
+position = Vector2(538, 487)
