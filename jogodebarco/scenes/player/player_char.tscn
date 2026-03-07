@@ -29,3 +29,5 @@ debug_color = Color(0.5859309, 0.54993314, 9.62615e-07, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1998049369]
 position_smoothing_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1551302867]

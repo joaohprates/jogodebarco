@@ -68,7 +68,6 @@ func aim_mode(cannon : Cannon):
 			if $RightCannon.target != old_target and $LeftCannon.target != old_target:
 				old_target.is_target = false
 
-
 func reset_button() -> void:
 	emit_signal("crew_reset")
 	free_crew = crew

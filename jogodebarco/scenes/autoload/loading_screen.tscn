@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://iv63215ymx5i"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_fkyxr"]
+[ext_resource type="Script" uid="uid://d0mqhgw1xhg6y" path="res://scenes/autoload/loading_screen.gd" id="1_ftu14"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5iot"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ftu14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_alsow"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c728e"]
+_data = {
+&"RESET": SubResource("Animation_ftu14"),
+&"rotate": SubResource("Animation_alsow")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkyxr"]
+bg_color = Color(0.51, 0.51, 0.51, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftu14"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="LoadingScreen" type="Node2D" unique_id=2112503359]
+script = ExtResource("1_ftu14")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=849921724]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1941334440]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=474583093]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5iot")
+
+[node name="Icon" type="Sprite2D" parent="CanvasLayer/Control/Panel" unique_id=1828766739]
+position = Vector2(576, 324)
+texture = ExtResource("1_fkyxr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Panel/Icon" unique_id=799180904]
+libraries/ = SubResource("AnimationLibrary_c728e")
+autoplay = &"rotate"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1708712867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 160
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control/MarginContainer" unique_id=295432952]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_fkyxr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ftu14")
+show_percentage = false

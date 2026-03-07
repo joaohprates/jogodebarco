@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dbrrikw3xyh47" path="res://scenes/entities/map_table.tscn" id="3_loxj2"]
 
 [node name="Island" type="Node2D" unique_id=343732068]
-y_sort_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=634825479]
 modulate = Color(1.4585098, 1.4001882, 0.524854, 1)

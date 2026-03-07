@@ -1,24 +1,23 @@
 [gd_scene format=3 uid="uid://dbrrikw3xyh47"]
 
 [ext_resource type="Script" uid="uid://b4ip46ykrpb52" path="res://scenes/entities/map_table.gd" id="1_8wjt3"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_b4ms3"]
+[ext_resource type="Texture2D" uid="uid://dqisj68qo10b8" path="res://assets/props/mesaToken.png" id="2_lf36k"]
 [ext_resource type="PackedScene" uid="uid://c1k2e3s15oeya" path="res://scripts/sistemas/interactable.tscn" id="3_lf36k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o208q"]
+size = Vector2(58, 45)
 
 [node name="MapTable" type="Node2D" unique_id=2098247658]
 script = ExtResource("1_8wjt3")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=737690010]
-texture = ExtResource("1_b4ms3")
-
-[node name="Label" type="Label" parent="." unique_id=1825260737]
-offset_left = -39.0
-offset_top = -21.0
-offset_right = 38.0
-offset_bottom = 56.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 11
-theme_override_font_sizes/font_size = 27
-text = "MAPA
-"
+texture_filter = 1
+texture = ExtResource("2_lf36k")
 
 [node name="Interactable" parent="." unique_id=1746643528 instance=ExtResource("3_lf36k")]
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=202073422]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=1352055760]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_o208q")

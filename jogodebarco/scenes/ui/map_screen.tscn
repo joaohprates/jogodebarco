@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://ce1qfw6jx5evk"]
+
+[ext_resource type="Script" uid="uid://ccn2a1oogyqid" path="res://scenes/ui/map_screen.gd" id="1_8oxj0"]
+[ext_resource type="Texture2D" uid="uid://3qrrelxrsf1s" path="res://assets/props/MapaGrande.png" id="1_thmwg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8oxj0"]
+texture = ExtResource("1_thmwg")
+region_rect = Rect2(0, 8, 128, 88)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_thmwg"]
+load_path = "res://.godot/imported/MapaGrande.png-4fe652c041b614873eb2c2077b34043f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2ra8"]
+texture = SubResource("CompressedTexture2D_thmwg")
+region_rect = Rect2(16, 96, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccehd"]
+texture = SubResource("CompressedTexture2D_thmwg")
+region_rect = Rect2(16, 96, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk2a2"]
+texture = SubResource("CompressedTexture2D_thmwg")
+region_rect = Rect2(16, 96, 16, 16)
+modulate_color = Color(1, 1, 1, 0.654902)
+
+[node name="MapScreen" type="Control" unique_id=1604735909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8oxj0")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2084939819]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1843954747]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8oxj0")
+
+[node name="ExpedButton" type="Node2D" parent="." unique_id=525382685]
+position = Vector2(545, 272)
+scale = Vector2(4, 4)
+
+[node name="Button" type="Button" parent="ExpedButton" unique_id=1654945524]
+custom_minimum_size = Vector2(16, 16)
+offset_left = -8.0
+offset_top = -7.75
+offset_right = 8.0
+offset_bottom = 8.25
+theme_override_styles/normal = SubResource("StyleBoxTexture_g2ra8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ccehd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hk2a2")
