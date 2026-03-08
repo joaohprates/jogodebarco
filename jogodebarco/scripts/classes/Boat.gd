@@ -3,14 +3,25 @@ extends CharacterBody2D
 class_name Boat
 
 @onready var movement: Movement = $Movement
+@onready var health = $Health
 
 var crew := 0
 var free_crew := 0
 
+signal boat_died
 signal crew_reset
 
 func _ready():
+	
 	connect("crew_reset", reset_crew)
+	health.connect("died", die)
+	
+	
+func die():
+	print("MORRENDO:", self.name)
+	Global.Player = null
+	emit_signal("boat_died")
+	queue_free()	
 
 func _physics_process(delta):
 	_handle_movement(delta)

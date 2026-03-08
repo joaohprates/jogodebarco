@@ -14,10 +14,10 @@ var repair_kits := 3
 var tgt = Vector2.ZERO
 
 func _ready() -> void:
-	
+	super._ready()
 	crew = 6
 	free_crew = crew
-
+	connect("boat_died", _on_player_died)
 	Global.Player = self
 	
 	tgt = Vector2(global_position.x, global_position.y - 2)
@@ -33,9 +33,11 @@ func _ready() -> void:
 	
 	$HUD/PlayerHealthBar.setup($Health)
 	$HUD/RepairKitButton.setup(self)
-	$HUD/RepairKitButton.connect("pressed", use_repair_kit)
+	if not $HUD/RepairKitButton.is_connected("pressed", use_repair_kit):
+		$HUD/RepairKitButton.connect("pressed", use_repair_kit)
 	emit_signal("repair_kits_changed", repair_kits, repair_kits_max)
-	
+
+		
 func _initialize_var():
 	movement.speed = 0
 	movement.anchored = true
@@ -51,7 +53,8 @@ func _physics_process(delta: float) -> void:
 		aim_mode($LeftCannon)
 
 	
-
+func _on_player_died():
+	get_tree().change_scene_to_file("res://scenes/ui/Game_over.tscn")
 
 func aim_mode(cannon : Cannon):
 	if Global.under_mouse != null and is_instance_valid(Global.under_mouse):

@@ -18,10 +18,12 @@ func allow_damage(damage: int):
 	atual_value -= damage
 	atual_value = clamp(atual_value, 0, max_health)
 	emit_signal("change", atual_value, max_health)
-
+	
 	if atual_value == 0:
+		print("emitindo sinal")
 		emit_signal("died")
-
+	print("DANO EM:", owner.name, "vida:", atual_value)
+	
 func regen(valor: int):
 	atual_value += valor
 	atual_value = clamp(atual_value, 0, max_health)
