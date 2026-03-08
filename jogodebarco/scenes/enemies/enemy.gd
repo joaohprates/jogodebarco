@@ -14,6 +14,7 @@ var relative_side
 @onready var crew_timer = $CrewTimer
 @onready var think_timer = $ThinkTimer
 
+
 enum States {
 	IDLE,
 	ATTACK
