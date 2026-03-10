@@ -4,9 +4,11 @@ extends CharacterBody2D
 class_name PlayerCharacter
 
 @onready var HUD = $HUD
+@onready var animator = $AnimationPlayer
 
-var speed: float = 200
+var speed: float = 100
 var dir:Vector2 = Vector2.ZERO
+var facing_right = true
 
 func _ready() -> void:
 	Global.Player_char = self
@@ -15,6 +17,16 @@ func _process(delta: float) -> void:
 	_handle_inputs()
 
 func _physics_process(delta: float) -> void:
+	if facing_right and dir.x < 0:
+		scale.x = -1
+		facing_right = false
+	elif !facing_right and dir.x > 0:
+		scale.x = -1
+		facing_right = true
+	if velocity == Vector2.ZERO:
+		animator.play("idle")
+	else:
+		animator.play("walk")
 	velocity = speed * dir.normalized()
 	move_and_slide()
 
