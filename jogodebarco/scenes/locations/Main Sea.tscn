@@ -7,6 +7,9 @@
 
 [node name="Node2D" type="Node2D" unique_id=1566108763]
 
+[node name="Ocean" parent="." unique_id=1628055315 instance=ExtResource("4_km5r8")]
+position = Vector2(0, -1)
+
 [node name="Player" parent="." unique_id=758394093 instance=ExtResource("1_wg2vt")]
 position = Vector2(517, 291)
 
@@ -15,6 +18,3 @@ position = Vector2(1228, 882)
 
 [node name="Enemy" parent="." unique_id=167787672 instance=ExtResource("3_rfwcb")]
 position = Vector2(1920, 353)
-
-[node name="Ocean" parent="." unique_id=1628055315 instance=ExtResource("4_km5r8")]
-z_index = -1
