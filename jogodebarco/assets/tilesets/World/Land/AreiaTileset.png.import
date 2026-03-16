@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpgtr4j0f16pq"
-path="res://.godot/imported/AreiaTileset.png-33cc8126b49b5e61bce7c69462f03505.ctex"
+path="res://.godot/imported/AreiaTileset.png-11adccaf637cf303be83cfaa708efd7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/AreiaTileset.png"
-dest_files=["res://.godot/imported/AreiaTileset.png-33cc8126b49b5e61bce7c69462f03505.ctex"]
+source_file="res://assets/tilesets/World/Land/AreiaTileset.png"
+dest_files=["res://.godot/imported/AreiaTileset.png-11adccaf637cf303be83cfaa708efd7c.ctex"]
 
 [params]
 

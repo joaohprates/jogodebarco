@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://0130yv3jbcq5" path="res://scenes/enemies/enemy.gd" id="1_6xk8f"]
 [ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="2_jt03m"]
+[ext_resource type="Texture2D" uid="uid://bpwuxmxry5ml0" path="res://assets/resources/Boat/barcoGrandao.png" id="2_tihwb"]
 [ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="3_n7575"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="4_qch6t"]
 [ext_resource type="PackedScene" uid="uid://dijov7hopv4oo" path="res://scripts/sistemas/LeftCannon.tscn" id="5_y5th1"]
 [ext_resource type="PackedScene" uid="uid://y85rwk8eynd8" path="res://scripts/sistemas/RightCannon.tscn" id="6_tihwb"]
 [ext_resource type="PackedScene" uid="uid://70pf4owuumip" path="res://scripts/sistemas/health_bar.tscn" id="7_p7w77"]
@@ -13,11 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://dguywdtt7eei4" path="res://scripts/sistemas/movement.tscn" id="11_tihwb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4gvh"]
-radius = 64.0
-height = 256.0
+radius = 31.0
+height = 130.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y5th1"]
-radius = 788.86566
+radius = 716.13684
 
 [node name="Enemy" type="CharacterBody2D" unique_id=167787672]
 collision_layer = 0
@@ -26,8 +26,9 @@ script = ExtResource("1_6xk8f")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1188167588]
 self_modulate = Color(1, 0, 0, 1)
-scale = Vector2(1, 2)
-texture = ExtResource("4_qch6t")
+position = Vector2(0, 1)
+rotation = 1.5707964
+texture = ExtResource("2_tihwb")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1365989209]
 shape = SubResource("CapsuleShape2D_k4gvh")
