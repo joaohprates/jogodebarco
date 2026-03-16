@@ -9,7 +9,7 @@ func _ready() -> void:
 	$Area2D.connect("mouse_entered", mouse_in)
 	$Area2D.connect("mouse_exited", mouse_out)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("left_click") and under_mouse:
 		owner.global_position = get_global_mouse_position()
 

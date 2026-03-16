@@ -3,7 +3,7 @@ extends Manned
 class_name Cannon
 
 @onready var cooldown = $Timer
-@onready var range = $Range
+@onready var rangec = $Range
 
 var target
 var on_range = []
@@ -14,11 +14,11 @@ var cooldown_time = 1
 
 func _ready() -> void:
 	super()
-	range.connect('area_entered', entered_range)
-	range.connect('area_exited', exited_range)
+	rangec.connect('area_entered', entered_range)
+	rangec.connect('area_exited', exited_range)
 	cooldown.connect('timeout', cooldown_end)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if target != null:
 		_attack(target)
 
@@ -38,7 +38,7 @@ func _shoot(tgt : Attackable):
 	tgt._take_damage(base_damage)
 	
 func calculate_cooldown():
-	return (cooldown_time*max_crew)/crew
+	return float (cooldown_time*max_crew)/crew
 
 func entered_range(area : Area2D):
 	area.owner.on_range = true

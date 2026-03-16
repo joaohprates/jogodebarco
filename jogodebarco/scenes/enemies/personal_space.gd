@@ -5,9 +5,9 @@ func _ready() -> void:
 	connect("area_entered",entered_space)
 	connect("area_exited", exited_space)
 
-func entered_space(area: Area2D):
+func entered_space(_area: Area2D):
 	on_personal_space = true
 
 
-func exited_space(area: Area2D):
+func exited_space(_area: Area2D):
 	on_personal_space = false

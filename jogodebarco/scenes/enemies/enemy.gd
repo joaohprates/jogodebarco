@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	elif state == States.IDLE:
 		idle_crew()
 
-func _attack(delta):
+func _attack(_delta):
 	#_handle_movement(delta)
 	match b_state:
 		BattleStates.CHASE:
@@ -106,7 +106,7 @@ func turn(d : int):
 	rotate(d * 0.005)
 
 ## Retorna [code]1[/code]  se [param tgt] estiver à sua direita, e [code]-1[/code] se estiver à sua esquerda
-func target_relative(tgt):
+func target_relative(_tgt):
 	return sign(sin(rotation - global_position.angle_to_point(target.global_position) + PI / 2))
 
 func idle_crew():

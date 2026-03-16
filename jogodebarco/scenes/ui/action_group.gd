@@ -16,7 +16,7 @@ func _ready() -> void:
 	connect("update", update_text)
 	call_deferred('update_text')
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_text()
 
 func action_toggle(toggl) -> void:
