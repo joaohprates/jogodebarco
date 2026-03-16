@@ -13,10 +13,10 @@ var facing_right = true
 func _ready() -> void:
 	Global.Player_char = self
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_handle_inputs()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if facing_right and dir.x < 0:
 		scale.x = -1
 		facing_right = false

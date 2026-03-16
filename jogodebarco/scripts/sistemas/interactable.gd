@@ -14,7 +14,7 @@ func _ready() -> void:
 	interact_zone.connect('area_entered',_player_entered)
 	interact_zone.connect('area_exited', _player_exited)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if player_in_range:
 		if Input.is_action_just_pressed("interact"):
 			interact()

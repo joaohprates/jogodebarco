@@ -79,7 +79,6 @@ func use_repair_kit():
 	if repair_kits <= 0:
 		return
 
-	var health: Health = $Health
 	if health.atual_value >= health.max_health:
 		return
 
@@ -96,7 +95,7 @@ func move():
 
 	if abs(angle_diff) > 0.05:
 		rotate(sign(angle_diff) * movement.t_accel)
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("r_click"):
 		tgt = get_global_mouse_position()
 		movement.anchored = false
