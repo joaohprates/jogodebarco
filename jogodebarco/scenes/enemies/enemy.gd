@@ -30,7 +30,7 @@ func _ready() -> void:
 	super()
 	crew = 4
 	free_crew = crew
-	$Health.max_health = 20
+	$Health.max_health = 10
 	detection.connect("area_entered", _player_detected)
 	crew_timer.wait_time = 5 - intelligence
 	crew_timer.connect("timeout", distribute_combat_crew)

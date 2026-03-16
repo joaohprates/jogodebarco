@@ -19,7 +19,6 @@ func _ready() -> void:
 	free_crew = crew
 	connect("boat_died", _on_player_died)
 	Global.Player = self
-	
 	tgt = Vector2(global_position.x, global_position.y - 2)
 	_initialize_var()
 	helm = get_node("Helm")
