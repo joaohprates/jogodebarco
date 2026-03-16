@@ -1,14 +1,14 @@
 extends Node
 class_name Health
 
-@export var max_health: int = 10
+@export var max_health: int = 100
 var atual_value: int
 
 signal change(atual_value, max_health)
 signal died
 
 func _ready():
-	atual_value = max_health / 2
+	atual_value = max_health
 	emit_signal("change", atual_value, max_health)
 
 func allow_damage(damage: int):
