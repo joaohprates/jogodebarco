@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://qo54aseceh5g" path="res://scenes/enemies/dummy.gd" id="1_tl16f"]
 [ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="2_niafq"]
 [ext_resource type="PackedScene" uid="uid://dggdu2ea22nri" path="res://scripts/sistemas/draggable.tscn" id="3_niafq"]
-[ext_resource type="Texture2D" uid="uid://b2xoegd41rnei" path="res://assets/tilesets/World/Ocean/deep-ocean-tileset2.png" id="3_rcljs"]
+[ext_resource type="Texture2D" uid="uid://c5ylyq718xlj0" path="res://assets/resources/Log/TroncoJogoBarco.png" id="3_rcljs"]
 [ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="4_rpbf4"]
 [ext_resource type="PackedScene" uid="uid://70pf4owuumip" path="res://scripts/sistemas/health_bar.tscn" id="6_rcljs"]
 
@@ -14,7 +14,6 @@ script = ExtResource("1_tl16f")
 [node name="Attackable" parent="." unique_id=567739818 instance=ExtResource("2_niafq")]
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1909405380]
-rotation = 1.5707964
 texture = ExtResource("3_rcljs")
 
 [node name="Draggable" parent="." unique_id=354464397 instance=ExtResource("3_niafq")]
