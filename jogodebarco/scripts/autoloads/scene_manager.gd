@@ -27,6 +27,7 @@ func go_back():
 	get_tree().current_scene = scene_stack[-1]
 	scene_stack[-1].process_mode = Node.PROCESS_MODE_ALWAYS
 
+## Troca a cena atual pela cena de endereço [param scene_path]
 func switch_scene(scene_path: String):
 	get_tree().root.add_child(load_screen)
 	scene_stack.pop_back()

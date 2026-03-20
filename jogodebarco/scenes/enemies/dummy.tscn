@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="4_rpbf4"]
 [ext_resource type="PackedScene" uid="uid://70pf4owuumip" path="res://scripts/sistemas/health_bar.tscn" id="6_rcljs"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcljs"]
+radius = 100.02
+
 [node name="Dummy" type="Node2D" unique_id=539487182]
 position = Vector2(1, -1)
 script = ExtResource("1_tl16f")
@@ -22,3 +25,9 @@ texture = ExtResource("3_rcljs")
 [node name="Health" parent="." unique_id=1914523214 instance=ExtResource("4_rpbf4")]
 
 [node name="HealthBarDummy" parent="." unique_id=555856711 instance=ExtResource("6_rcljs")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1758769992]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=78593371]
+shape = SubResource("CircleShape2D_rcljs")
