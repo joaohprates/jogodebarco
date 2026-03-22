@@ -7,7 +7,9 @@ class_name Interactable
 @onready var interact_zone: Area2D = $InteractZone
 @onready var outline = load("res://assets/shaders/interactable_outline.tres")
 @onready var press_f = $Label
+
 var player_in_range: bool = false
+var message: String = 'interact'
 
 func _ready() -> void:
 	press_f.position.y = owner.get_node('Sprite').texture.get_height()/2
@@ -25,13 +27,14 @@ func interact():
 		get_parent().interact()
 
 func _player_entered(area):
-	if area.owner is PlayerCharacter:
+	press_f.text = 'press \'F\' to ' + message
+	if area.owner is PlayerCharacter or area.owner is Player:
 		player_in_range = true
-	owner.get_node('Sprite').material = outline
-	press_f.visible = true
+		press_f.visible = true
+		owner.get_node('Sprite').material = outline
 
 func _player_exited(area):
-	if area.owner is PlayerCharacter:
+	if area.owner is PlayerCharacter or area.owner is Player:
 		player_in_range = false
-	owner.get_node('Sprite').material = null
-	press_f.visible = false
+		press_f.visible = false
+		owner.get_node('Sprite').material = null
