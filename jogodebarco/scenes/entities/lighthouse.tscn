@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c28jhkra0i2e6"]
 
 [ext_resource type="Script" uid="uid://cg83ih4815cbr" path="res://scenes/entities/lighthouse.gd" id="1_s2opf"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_vdmjd"]
+[ext_resource type="Texture2D" uid="uid://bvx6wan4um6iw" path="res://assets/props/Farol.png" id="2_ieb5d"]
 [ext_resource type="PackedScene" uid="uid://c1k2e3s15oeya" path="res://scripts/sistemas/interactable.tscn" id="3_ieb5d"]
 [ext_resource type="Texture2D" uid="uid://dorrwt6trm6hi" path="res://assets/props/LighthouseBeam.png" id="3_qs3y7"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vdmjd"]
-polygon = PackedVector2Array(-56, -171, -48, -172, -48, -208, -56, -208)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qs3y7"]
+load_path = "res://.godot/imported/Farol.png-9e1178249ec02cbbab9c41e1ca101e3e.ctex"
 
 [sub_resource type="Animation" id="Animation_s2opf"]
 length = 0.001
@@ -51,23 +51,21 @@ script = ExtResource("1_s2opf")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=405693156]
 position = Vector2(0, -128)
-scale = Vector2(1, 2)
-texture = ExtResource("1_vdmjd")
-
-[node name="Leftwall" type="LightOccluder2D" parent="." unique_id=1788522932]
-position = Vector2(-8, 0)
-occluder = SubResource("OccluderPolygon2D_vdmjd")
-
-[node name="RightWall" type="LightOccluder2D" parent="." unique_id=809298191]
-position = Vector2(112, 0)
-occluder = SubResource("OccluderPolygon2D_vdmjd")
+texture = ExtResource("2_ieb5d")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=61457520]
-position = Vector2(-1, -194.00003)
+position = Vector2(0, -221)
 color = Color(0.98333335, 1, 0, 1)
 shadow_enabled = true
 texture = ExtResource("3_qs3y7")
 texture_scale = 2.0
+
+[node name="Roof" type="Sprite2D" parent="." unique_id=2007650698]
+light_mask = 2
+position = Vector2(4, -245)
+texture = SubResource("CompressedTexture2D_qs3y7")
+region_enabled = true
+region_rect = Rect2(11, 0, 114, 22)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1555847706]
 libraries/ = SubResource("AnimationLibrary_qs3y7")
