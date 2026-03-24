@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cngj85km1enlv"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_4ttpn"]
 [ext_resource type="Script" uid="uid://cum4w7x2ojr21" path="res://scenes/ui/end_screen.gd" id="1_n8r4t"]
+[ext_resource type="Texture2D" uid="uid://cnekcfru7hky6" path="res://assets/props/tesouro.png" id="2_n8r4t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqyw5"]
 bg_color = Color(0.28208217, 0.6298507, 0.8911825, 1)
@@ -41,7 +41,7 @@ theme_override_colors/font_color = Color(0.90354496, 1, 0.29941684, 1)
 theme_override_colors/font_outline_color = Color(0.63027304, 0.52845764, 0, 1)
 theme_override_constants/outline_size = 17
 theme_override_font_sizes/font_size = 56
-text = "Nível Finalizado!"
+text = "Level Finished!"
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=790067361]
 layout_mode = 1
@@ -59,30 +59,34 @@ custom_minimum_size = Vector2(256, 96)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-text = "Voltar ao Menu"
+text = "Go Back to Menu
+"
 
 [node name="Continue" type="Button" parent="Panel/MarginContainer" unique_id=1290951004]
 custom_minimum_size = Vector2(256, 96)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-text = "Continuar"
+text = "Continue"
 
 [node name="Node2D" type="Node2D" parent="." unique_id=737869944]
-position = Vector2(388, 467)
+position = Vector2(380, 466)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Node2D" unique_id=1537917732]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 392.0
+offset_bottom = 128.0
 
 [node name="TextureRect" type="TextureRect" parent="Node2D/HBoxContainer" unique_id=1585134383]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = ExtResource("1_4ttpn")
+texture = ExtResource("2_n8r4t")
 
 [node name="TextureRect2" type="TextureRect" parent="Node2D/HBoxContainer" unique_id=1522784422]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = ExtResource("1_4ttpn")
+texture = ExtResource("2_n8r4t")
 
 [node name="TextureRect3" type="TextureRect" parent="Node2D/HBoxContainer" unique_id=341929053]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = ExtResource("1_4ttpn")
+texture = ExtResource("2_n8r4t")
