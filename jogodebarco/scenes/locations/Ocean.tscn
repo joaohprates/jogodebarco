@@ -308,7 +308,7 @@ metadata/_edit_lock_ = true
 position = Vector2(652, 166)
 
 [node name="Treasure" parent="." unique_id=1775523923 instance=ExtResource("8_208cf")]
-position = Vector2(661, -83)
+position = Vector2(347, -949)
 
 [node name="Lighthouse" parent="." unique_id=586046429 instance=ExtResource("9_208cf")]
 position = Vector2(-1325, -2606)
@@ -316,5 +316,8 @@ position = Vector2(-1325, -2606)
 [node name="Lighthouse2" parent="." unique_id=1393741185 instance=ExtResource("9_208cf")]
 position = Vector2(1028, 2627)
 
-[node name="Lighthouse3" parent="." unique_id=93779724 instance=ExtResource("9_208cf")]
-position = Vector2(280, 261)
+[node name="Treasure2" parent="." unique_id=1516127821 instance=ExtResource("8_208cf")]
+position = Vector2(3391, 1347)
+
+[node name="Treasure3" parent="." unique_id=514707964 instance=ExtResource("8_208cf")]
+position = Vector2(3508, -2606)
