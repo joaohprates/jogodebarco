@@ -16,7 +16,7 @@ func _ready() -> void:
 	$DetectBox.connect('mouse_exited', mouse_out)
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_target:
 		get_parent().get_node('Sprite').material = load("res://assets/shaders/attack_outline.tres")
 		if !on_range:

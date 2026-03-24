@@ -37,7 +37,6 @@ func switch_scene(scene_path: String):
 	scene_stack.append(get_tree().current_scene)
 
 func _input(event: InputEvent) -> void:
-	return
 	if event.is_action_pressed('interact'):
 		go_back()
 	if event.is_action_pressed('up'):
