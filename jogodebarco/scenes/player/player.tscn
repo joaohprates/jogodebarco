@@ -99,10 +99,10 @@ size_flags_vertical = 10
 [node name="Move" parent="HUD/ActBar" unique_id=810268185 instance=ExtResource("3_h17s1")]
 layout_mode = 2
 
-[node name="RightCannon" parent="HUD/ActBar" unique_id=1749966055 instance=ExtResource("3_h17s1")]
+[node name="LeftCanon" parent="HUD/ActBar" unique_id=192893261 instance=ExtResource("3_h17s1")]
 layout_mode = 2
 
-[node name="LeftCanon" parent="HUD/ActBar" unique_id=192893261 instance=ExtResource("3_h17s1")]
+[node name="RightCannon" parent="HUD/ActBar" unique_id=1749966055 instance=ExtResource("3_h17s1")]
 layout_mode = 2
 
 [node name="Repair" parent="HUD/ActBar" unique_id=849423893 instance=ExtResource("3_h17s1")]

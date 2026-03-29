@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://healing_station01"]
+
+[ext_resource type="Script" path="res://scenes/entities/healing_station.gd" id="1_heal"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_heal"]
+[ext_resource type="PackedScene" uid="uid://c1k2e3s15oeya" path="res://scripts/sistemas/interactable.tscn" id="3_heal"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_heal"]
+radius = 20.0
+
+[node name="HealingStation" type="Node2D"]
+script = ExtResource("1_heal")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_heal")
+
+[node name="Interactable" parent="." instance=ExtResource("3_heal")]
+
+[node name="CollisionShape2D" parent="Interactable/InteractZone" index="0"]
+shape = SubResource("CircleShape2D_heal")

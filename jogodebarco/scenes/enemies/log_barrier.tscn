@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://lk0lknklr0te"]
+
+[ext_resource type="Script" uid="uid://f6i1g7j13egw" path="res://scenes/enemies/log_barrier.gd" id="1_log"]
+[ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="2_log"]
+[ext_resource type="Texture2D" uid="uid://c5ylyq718xlj0" path="res://assets/resources/Log/TroncoJogoBarco.png" id="3_log"]
+[ext_resource type="PackedScene" uid="uid://bs4uqmefq2rqg" path="res://scripts/sistemas/health.tscn" id="4_log"]
+[ext_resource type="PackedScene" uid="uid://70pf4owuumip" path="res://scripts/sistemas/health_bar.tscn" id="5_log"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_log"]
+size = Vector2(551, 21)
+
+[node name="LogBarrier" type="StaticBody2D" unique_id=215214852]
+collision_mask = 2
+script = ExtResource("1_log")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=935150822]
+texture = ExtResource("3_log")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1059437795]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_log")
+
+[node name="Attackable" parent="." unique_id=1144263972 instance=ExtResource("2_log")]
+
+[node name="Health" parent="." unique_id=1662034365 instance=ExtResource("4_log")]
+max_health = 30
+
+[node name="HealthBar" parent="." unique_id=2138102029 instance=ExtResource("5_log")]

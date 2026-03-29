@@ -35,9 +35,3 @@ func switch_scene(scene_path: String):
 	load_screen.load_scene(scene_path)
 	await load_screen.scene_loaded
 	scene_stack.append(get_tree().current_scene)
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed('interact'):
-		go_back()
-	if event.is_action_pressed('up'):
-		load_on_top("res://scenes/locations/Main Sea.tscn")

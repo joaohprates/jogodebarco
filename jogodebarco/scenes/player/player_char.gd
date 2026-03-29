@@ -8,7 +8,7 @@ class_name PlayerCharacter
 
 var speed: float = 100
 var dir:Vector2 = Vector2.ZERO
-var facing_right = true
+var facing: String = "front"
 
 func _ready() -> void:
 	Global.Player_char = self
@@ -17,16 +17,22 @@ func _process(_delta: float) -> void:
 	_handle_inputs()
 
 func _physics_process(_delta: float) -> void:
-	if facing_right and dir.x < 0:
-		scale.x = -1
-		facing_right = false
-	elif !facing_right and dir.x > 0:
-		scale.x = -1
-		facing_right = true
+	if dir != Vector2.ZERO:
+		if abs(dir.x) >= abs(dir.y):
+			if dir.x > 0:
+				facing = "right"
+			else:
+				facing = "left"
+		else:
+			if dir.y > 0:
+				facing = "front"
+			else:
+				facing = "back"
+
 	if velocity == Vector2.ZERO:
-		animator.play("idle")
+		animator.play("idle_" + facing)
 	else:
-		animator.play("walk")
+		animator.play("walk_" + facing)
 	velocity = speed * dir.normalized()
 	move_and_slide()
 

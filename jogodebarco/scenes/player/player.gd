@@ -13,7 +13,8 @@ var player_state = States.IDLE
 
 var repair_kits := 3
 
-var tgt = Vector2.ZERO
+var _hover_outline: Material = preload("res://assets/shaders/attack_hover_outline.tres")
+var target_angle := 0.0
 
 func _ready() -> void:
 	super._ready()
@@ -21,7 +22,6 @@ func _ready() -> void:
 	free_crew = crew
 	connect("boat_died", _on_player_died)
 	Global.Player = self
-	tgt = Vector2(global_position.x, global_position.y - 2)
 	_initialize_var()
 	helm = get_node("Helm")
 	$Attackable.selectable = false
@@ -60,7 +60,7 @@ func _on_player_died():
 func aim_mode(cannon : Cannon):
 	if Global.under_mouse != null and is_instance_valid(Global.under_mouse):
 		if Global.under_mouse is Attackable:
-			Global.under_mouse.owner.get_node("Sprite").material = load("res://assets/shaders/attack_hover_outline.tres")
+			Global.under_mouse.owner.get_node("Sprite").material = _hover_outline
 			if Input.is_action_just_pressed("left_click"):
 				cannon.target = Global.under_mouse
 				cannon.target.is_target = true
@@ -92,12 +92,12 @@ func use_repair_kit():
 	emit_signal("repair_kits_changed", repair_kits, repair_kits_max)
 
 func move():
-	var desired_angle = (tgt - global_position).angle() + PI/2
-	var angle_diff = wrapf(desired_angle - rotation, -PI, PI)
-
+	var angle_diff = wrapf(target_angle - rotation, -PI, PI)
 	if abs(angle_diff) > 0.05:
 		rotate(sign(angle_diff) * movement.t_accel)
+
 func _input(_event):
 	if Input.is_action_just_pressed("r_click"):
-		tgt = get_global_mouse_position()
+		var mouse_pos = get_global_mouse_position()
+		target_angle = (mouse_pos - global_position).angle() + PI/2
 		movement.anchored = false
