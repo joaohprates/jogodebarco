@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://70pf4owuumip" path="res://scripts/sistemas/health_bar.tscn" id="7_p7w77"]
 [ext_resource type="PackedScene" uid="uid://bkrkmsql3lgqw" path="res://scripts/sistemas/detection_range.tscn" id="8_n7575"]
 [ext_resource type="Script" uid="uid://b1lln8vji1xdy" path="res://scenes/enemies/personal_space.gd" id="9_qch6t"]
+
 [ext_resource type="PackedScene" uid="uid://dggdu2ea22nri" path="res://scripts/sistemas/draggable.tscn" id="10_y5th1"]
 [ext_resource type="PackedScene" uid="uid://dguywdtt7eei4" path="res://scripts/sistemas/movement.tscn" id="11_tihwb"]
 
@@ -20,8 +21,8 @@ height = 130.0
 radius = 716.13684
 
 [node name="Enemy" type="CharacterBody2D" unique_id=167787672]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_6xk8f")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1188167588]
@@ -61,5 +62,6 @@ autostart = true
 autostart = true
 
 [node name="Draggable" parent="." unique_id=354464397 instance=ExtResource("10_y5th1")]
+drag_enabled = false
 
 [node name="Movement" parent="." unique_id=2097845751 instance=ExtResource("11_tihwb")]

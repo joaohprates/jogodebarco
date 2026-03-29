@@ -1,4 +1,4 @@
 extends Label
 
 func _physics_process(delta: float) -> void:
-	text =str(Global.treasuresCollected)+'/3'
+	text = 'Treasures ' +str(Global.treasuresCollected)+'/5'

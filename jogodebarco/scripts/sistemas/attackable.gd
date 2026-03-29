@@ -8,25 +8,27 @@ var selectable = true
 var is_target = false
 var on_range = false
 
+var _outline_material: Material = preload("res://assets/shaders/attack_outline.tres")
+var _was_target = false
+
 func _ready() -> void:
-	print("health encontrado:", health)
-	$DetectBox/CollisionShape2D.shape.size = Vector2(parent_sprite.texture.get_width(), parent_sprite.texture.get_height()) 
+	$DetectBox/CollisionShape2D.shape.size = Vector2(parent_sprite.texture.get_width(), parent_sprite.texture.get_height())
 	$TooFar.position.y = parent_sprite.texture.get_height() / 2
+	$TooFar.visible = false
 	$DetectBox.connect('mouse_entered', mouse_hover)
 	$DetectBox.connect('mouse_exited', mouse_out)
-	
+
 
 func _process(_delta: float) -> void:
 	if is_target:
-		get_parent().get_node('Sprite').material = load("res://assets/shaders/attack_outline.tres")
-		if !on_range:
-			$TooFar.visible = true
-		else:
-			$TooFar.visible = false
-	if !is_target and get_parent().get_node('Sprite').material == load("res://assets/shaders/attack_outline.tres"):
-		get_parent().get_node('Sprite').material = null
-	if !is_target:
+		if !_was_target:
+			parent_sprite.material = _outline_material
+			_was_target = true
+		$TooFar.visible = !on_range
+	elif _was_target:
+		parent_sprite.material = null
 		$TooFar.visible = false
+		_was_target = false
 
 func _take_damage(damage : int):
 	if health == null:

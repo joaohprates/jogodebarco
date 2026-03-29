@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d3j7mlfw7r1uo"]
 
 [ext_resource type="PackedScene" uid="uid://u81gkx7gn71n" path="res://scenes/player/player.tscn" id="1_wg2vt"]
-[ext_resource type="PackedScene" uid="uid://dflf4ph2ji1yw" path="res://scenes/enemies/dummy.tscn" id="2_pg358"]
 [ext_resource type="PackedScene" uid="uid://b0p6v57ho6s1d" path="res://scenes/enemies/enemy.tscn" id="3_rfwcb"]
 [ext_resource type="PackedScene" uid="uid://7oesum168tur" path="res://scenes/locations/Ocean.tscn" id="4_km5r8"]
+[ext_resource type="PackedScene" path="res://scenes/ui/tela_pause.tscn" id="5_pause"]
 
 [node name="Node2D" type="Node2D" unique_id=1566108763]
 
@@ -13,8 +13,10 @@ position = Vector2(0, -380)
 [node name="Player" parent="." unique_id=758394093 instance=ExtResource("1_wg2vt")]
 position = Vector2(517, 291)
 
-[node name="Dummy" parent="." unique_id=539487182 instance=ExtResource("2_pg358")]
-position = Vector2(1228, 882)
-
 [node name="Enemy" parent="." unique_id=167787672 instance=ExtResource("3_rfwcb")]
 position = Vector2(1920, 353)
+
+[node name="TelaPause" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Pause" parent="TelaPause" instance=ExtResource("5_pause")]

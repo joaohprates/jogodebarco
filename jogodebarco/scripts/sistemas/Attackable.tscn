@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://53itluakc173" path="res://scripts/sistemas/attackable.gd" id="1_fsxym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4l7i"]
+size = Vector2(121, 20)
 
 [node name="Attackable" type="Node2D" unique_id=2015687690]
 script = ExtResource("1_fsxym")
@@ -12,6 +13,7 @@ collision_layer = 4
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBox" unique_id=253763575]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_w4l7i")
 
 [node name="TooFar" type="Label" parent="." unique_id=1637553279]

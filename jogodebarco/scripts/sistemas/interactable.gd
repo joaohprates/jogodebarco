@@ -37,4 +37,5 @@ func _player_exited(area):
 	if area.owner is PlayerCharacter or area.owner is Player:
 		player_in_range = false
 		press_f.visible = false
-		owner.get_node('Sprite').material = null
+		if is_instance_valid(owner):
+			owner.get_node('Sprite').material = null

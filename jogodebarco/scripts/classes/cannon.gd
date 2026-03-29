@@ -36,14 +36,14 @@ func _shoot(tgt : Attackable):
 	can_shoot = false
 	cooldown.start(calculate_cooldown())
 	tgt._take_damage(base_damage)
-	
+
 func calculate_cooldown():
 	return float (cooldown_time*max_crew)/crew
 
 func entered_range(area : Area2D):
 	area.owner.on_range = true
 	on_range.append(area.owner)
-	
+
 func exited_range(area : Area2D):
 	area.owner.on_range = false
 	on_range.erase(area.owner)

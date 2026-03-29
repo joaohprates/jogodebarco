@@ -31,6 +31,10 @@ func _ready() -> void:
 	crew = 4
 	free_crew = crew
 	$Health.max_health = 10
+	r_cannon.base_damage = 10
+	l_cannon.base_damage = 10
+	movement.base_max_speed = 100.0
+	movement.base_accel = 25.0
 	detection.connect("area_entered", _player_detected)
 	crew_timer.wait_time = 5 - intelligence
 	crew_timer.connect("timeout", distribute_combat_crew)
@@ -40,6 +44,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if state == States.ATTACK:
+		if target == null or not is_instance_valid(target):
+			state = States.IDLE
+			r_cannon.target = null
+			l_cannon.target = null
+			target = null
+			emit_signal("crew_reset")
+			return
 		_attack(delta)
 	elif state == States.IDLE:
 		idle_crew()
@@ -98,7 +109,7 @@ func _think():
 		else:
 			b_state = BattleStates.CHASE
 
-## Se [param d] for [code]1[/code], vira o barco para a direita, se [param d] for 
+## Se [param d] for [code]1[/code], vira o barco para a direita, se [param d] for
 ##[code]-1[/code], vira para a esquerda
 func turn(d : int):
 	if d == 0:
