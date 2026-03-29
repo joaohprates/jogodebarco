@@ -1,5 +1,7 @@
 extends Boat
 
+class_name Player
+
 signal repair_kits_changed(current, max)
 @export var repair_kits_max := 3
 

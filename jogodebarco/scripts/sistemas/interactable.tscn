@@ -20,5 +20,5 @@ visible = false
 offset_left = -74.0
 offset_right = 74.0
 offset_bottom = 23.0
-text = "Press 'F' to interact"
+text = "Press 'F' to [message]"
 horizontal_alignment = 1

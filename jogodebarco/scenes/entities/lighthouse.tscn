@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c28jhkra0i2e6"]
+
+[ext_resource type="Script" uid="uid://cg83ih4815cbr" path="res://scenes/entities/lighthouse.gd" id="1_s2opf"]
+[ext_resource type="Texture2D" uid="uid://bvx6wan4um6iw" path="res://assets/props/Farol.png" id="2_ieb5d"]
+[ext_resource type="PackedScene" uid="uid://c1k2e3s15oeya" path="res://scripts/sistemas/interactable.tscn" id="3_ieb5d"]
+[ext_resource type="Texture2D" uid="uid://dorrwt6trm6hi" path="res://assets/props/LighthouseBeam.png" id="3_qs3y7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qs3y7"]
+load_path = "res://.godot/imported/Farol.png-9e1178249ec02cbbab9c41e1ca101e3e.ctex"
+
+[sub_resource type="Animation" id="Animation_s2opf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D2:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ieb5d"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.1415927]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qs3y7"]
+_data = {
+&"RESET": SubResource("Animation_s2opf"),
+&"new_animation": SubResource("Animation_ieb5d")
+}
+
+[node name="Lighthouse" type="Node2D" unique_id=586046429]
+script = ExtResource("1_s2opf")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=405693156]
+position = Vector2(0, -128)
+texture = ExtResource("2_ieb5d")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=61457520]
+position = Vector2(0, -221)
+color = Color(0.98333335, 1, 0, 1)
+shadow_enabled = true
+texture = ExtResource("3_qs3y7")
+texture_scale = 2.0
+
+[node name="Roof" type="Sprite2D" parent="." unique_id=2007650698]
+light_mask = 2
+position = Vector2(4, -245)
+texture = SubResource("CompressedTexture2D_qs3y7")
+region_enabled = true
+region_rect = Rect2(11, 0, 114, 22)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1555847706]
+libraries/ = SubResource("AnimationLibrary_qs3y7")
+autoplay = &"new_animation"
+
+[node name="Interactable" parent="." unique_id=1448911633 instance=ExtResource("3_ieb5d")]
