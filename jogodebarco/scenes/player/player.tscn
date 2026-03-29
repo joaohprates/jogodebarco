@@ -13,14 +13,19 @@
 [ext_resource type="PackedScene" uid="uid://ddmr6k2yey2n3" path="res://scripts/sistemas/Attackable.tscn" id="12_fm80t"]
 [ext_resource type="PackedScene" uid="uid://dijov7hopv4oo" path="res://scripts/sistemas/LeftCannon.tscn" id="12_gx1jg"]
 [ext_resource type="Script" uid="uid://5fdo7010jhip" path="res://scenes/player/progress_bar.gd" id="13_gx1jg"]
+[ext_resource type="Texture2D" uid="uid://cnekcfru7hky6" path="res://assets/props/tesouro.png" id="14_fcs02"]
+[ext_resource type="Script" uid="uid://isxq74aqvgq3" path="res://scenes/player/treasure_counter.gd" id="15_myrg7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 24.0
 height = 124.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myrg7"]
+texture = ExtResource("14_fcs02")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fm80t"]
-radius = 64.0
-height = 256.0
+radius = 32.0
+height = 128.0
 
 [node name="Player" type="CharacterBody2D" unique_id=758394093]
 slide_on_ceiling = false
@@ -119,6 +124,24 @@ text = "Crew x/y"
 offset_right = 146.0
 offset_bottom = 27.0
 script = ExtResource("13_gx1jg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=1252984915]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="HUD/HBoxContainer" unique_id=12156691]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_myrg7")
+
+[node name="Treasures" type="Label" parent="HUD/HBoxContainer" unique_id=1885785567]
+layout_mode = 2
+text = "0/3"
+script = ExtResource("15_myrg7")
 
 [node name="PlayerBox" type="Area2D" parent="." unique_id=95975845]
 collision_layer = 2

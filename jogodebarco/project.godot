@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Jogo de Brco"
-run/main_scene="uid://d3j7mlfw7r1uo"
+run/main_scene="uid://dwpjmch400q8u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://bdawxj0tdc0wu"
 SceneManager="*uid://bpiv5te0s4u38"
+SignalBus="*uid://dhwvrtwt8x2r4"
 
 [input]
 
